@@ -115,8 +115,8 @@ module.exports = NodeHelper.create({
             const valueOn = this.config.sensorState;
             const valueOff = (this.config.sensorState + 1) % 2;
 
-            //Detected movement
-            this.pir.watch(function(err, value) {
+            // Detected movement
+            this.pir.watch(function (err, value) {
                 if (value == valueOn) {
                     self.sendSocketNotification('USER_PRESENCE', true);
                     if (self.config.powerSaving){
