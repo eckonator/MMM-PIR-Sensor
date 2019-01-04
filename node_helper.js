@@ -115,27 +115,30 @@ module.exports = NodeHelper.create({
             const valueOn = this.config.sensorState;
             const valueOff = (this.config.sensorState + 1) % 2;
 
-            // Detected movement
-            this.pir.watch(function (err, value) {
+            //Detected movement
+            this.pir.watch(function(err, value) {
                 if (value == valueOn) {
-                    self.sendSocketNotification('USER_PRESENCE', true);
+                    self.sendSocketNotification("USER_PRESENCE", true);
                     if (self.config.powerSaving){
                         clearTimeout(self.deactivateMonitorTimeout);
+                        self.activateMonitor();
+                        self.deactivateMonitorTimeout = setTimeout(function() {
+                            self.sendSocketNotification("USER_PRESENCE", false);
+                            self.deactivateMonitor();
+                        }, self.config.powerSavingDelay * 1000);
+                    } else if (!self.config.powerSaving){
                         self.activateMonitor();
                     }
                 }
                 else if (value == valueOff) {
-                    self.sendSocketNotification('USER_PRESENCE', false);
                     if (!self.config.powerSaving){
-                        return;
-                    }
-
-                    self.deactivateMonitorTimeout = setTimeout(function() {
+                        self.sendSocketNotification("USER_PRESENCE", false);
                         self.deactivateMonitor();
-                    }, self.config.powerSavingDelay * 1000);
+                    }
                 }
             });
 
+            exec("vcgencmd display_power 0", null);
             this.started = true;
 
         } else if (notification === 'SCREEN_WAKEUP') {
