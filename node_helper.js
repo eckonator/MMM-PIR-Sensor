@@ -138,7 +138,7 @@ module.exports = NodeHelper.create({
                 }
             });
 
-            exec("vcgencmd display_power 0", null);
+            exec("/usr/bin/vcgencmd display_power 0", null);
             this.started = true;
 
         } else if (notification === 'SCREEN_WAKEUP') {
