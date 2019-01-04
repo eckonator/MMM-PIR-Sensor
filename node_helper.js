@@ -118,12 +118,12 @@ module.exports = NodeHelper.create({
             //Detected movement
             this.pir.watch(function(err, value) {
                 if (value == valueOn) {
-                    self.sendSocketNotification("USER_PRESENCE", true);
+                    self.sendSocketNotification('USER_PRESENCE', true);
                     if (self.config.powerSaving){
                         clearTimeout(self.deactivateMonitorTimeout);
                         self.activateMonitor();
                         self.deactivateMonitorTimeout = setTimeout(function() {
-                            self.sendSocketNotification("USER_PRESENCE", false);
+                            self.sendSocketNotification('USER_PRESENCE', false);
                             self.deactivateMonitor();
                         }, self.config.powerSavingDelay * 1000);
                     } else if (!self.config.powerSaving){
@@ -132,7 +132,7 @@ module.exports = NodeHelper.create({
                 }
                 else if (value == valueOff) {
                     if (!self.config.powerSaving){
-                        self.sendSocketNotification("USER_PRESENCE", false);
+                        self.sendSocketNotification('USER_PRESENCE', false);
                         self.deactivateMonitor();
                     }
                 }
