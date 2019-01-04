@@ -56,6 +56,7 @@ module.exports = NodeHelper.create({
         if (notification === 'CONFIG' && this.started == false) {
             const self = this;
             this.config = payload;
+            self.deactivateMonitorTimeout;
 
             // Setup for relay pin
             if (this.config.relayPin) {
