@@ -25,7 +25,7 @@
   },
   "dependencies": {
     "electron-rebuild": "^1.2.1",
-    "magicmirror-rebuild": "^1.0.5",
+    "magicmirror-rebuild": "latest",
     "onoff": "latest"
   }
 }
