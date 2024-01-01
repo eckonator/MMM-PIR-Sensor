@@ -21,7 +21,6 @@
   },
   "homepage": "https://github.com/eckonator/MMM-PIR-Sensor#readme",
   "scripts": {
-    "postinstall": "node_modules/.bin/MagicMirror-rebuild"
   },
   "dependencies": {
     "magicmirror-rebuild": "latest",
