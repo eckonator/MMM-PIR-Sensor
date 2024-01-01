@@ -12,8 +12,8 @@ This an extension for the [MagicMirror](https://github.com/MichMich/MagicMirror)
 After MagicMirror Update, maybe it can help to run:
 ````
 cd ~/MagicMirror/modules/MMM-PIR-Sensor
-rm -rf node_modules
-rm -rf package-lock.json
+rm -rf ./node_modules
+rm ./package-lock.json
 npm install
 ./node_modules/.bin/MagicMirror-rebuild
 ````
