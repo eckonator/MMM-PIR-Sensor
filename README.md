@@ -15,7 +15,6 @@ cd ~/MagicMirror/modules/MMM-PIR-Sensor
 rm -rf ./node_modules
 rm ./package-lock.json
 npm install
-./node_modules/.bin/MagicMirror-rebuild
 ````
 
 ## Using the module
