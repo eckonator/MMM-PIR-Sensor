@@ -6,6 +6,7 @@ This an extension for the [MagicMirror](https://github.com/MichMich/MagicMirror)
 2. Execute `npm install` to install the node dependencies.
 3. Add your user (`pi`?) to the `gpio group` by executing `sudo usermod -a -G gpio pi`.
 4. Execute `sudo chmod u+s /opt/vc/bin/tvservice && sudo chmod u+s /bin/chvt` to allow turning on/off the hdmi output.
+5. If your Rasbian is Debian Bullyeye or newer, the GPIO numbering has been changeg (https://stackoverflow.com/a/78184108). Execute `sudo cat /sys/kernel/debug/gpio` to get your new PIN-Number.
 5. Reboot your Pi.
 
 
@@ -48,7 +49,7 @@ The following properties can be configured:
 			<td><code>sensorPin</code></td>
 			<td>The pin your PIR-sensor is connected to.<br>
 				<br><b>Possible values:</b> <code>int</code>
-				<br><b>Default value:</b> <code>22</code>
+				<br><b>Default value:</b> <code>534</code>
 				<br><b>Note:</b> Please use BCM-numbering.
 			</td>
 		</tr>
